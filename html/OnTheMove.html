@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<head>
+  <script>
+    var timer = window.setInterval(moveImage,400);
+    
+    function moveImage() {
+      document.getElementById("samrfs").style.left=Math.random()*900+"px";
+      document.getElementById("samrfs").style.top=Math.random()*600+"px";
+    }
+    function removeImage() { <!-- hiding and showing the image -->
+      var image = document.getElementById("samrfs");
+      if (image.style.display == "none") {
+        image.style.display = "block";
+      } else {
+        image.style.display = "none";
+      }
+      
+    }
+    function bringBack(image) { <!-- after 5 seconds bring back image -->
+      
+    }
+  </script>
+</head>
+<body>
+  <!-- the image -->
+  <p>Click the picture to get a point.</p>
+  <img
+    id="samrfs"
+    alt="Rock Feather Gamer Group Logo"
+    src="../assets/rfsGames.png"
+    style="position:absolute"
+    width="200"
+    onClick="removeImage()"
+  />
+  <button onClick="removeImage()">Remove and put back the image.</button>
+</body>

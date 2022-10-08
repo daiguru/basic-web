@@ -1,0 +1,53 @@
+body {
+  background:#95D4C2;
+  text-align:center;
+}
+img {
+  height:40px;
+  border:3px dashed grey
+}
+h2 {
+  color:skyblue;
+  background:#B9A88A;
+  width:150px;
+  text-align:center;
+}
+label {
+  color:#6130BB;
+  font-family:Century Gothic;
+  margin:0 auto
+}
+input {
+  font-family:serif;
+  color:black;
+  text-align:center;
+}
+table {
+  text-align:center;
+}
+.head {
+  color:#784315;
+  text-align:center;
+}
+.head:active{
+  color:#FF0000;
+}
+.body {
+  color:darkgreen
+}
+.p1 {
+  color:red;
+  text-align:center;
+}
+.p2 {
+  color:#0B21B9;
+  text-align:center;
+}
+.link {
+  font-family:fantasy;
+  text-align:center;
+}
+.schedule-column {
+  width:200px;
+  text-align:center;
+}

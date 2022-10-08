@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<body style="background:lightgreen">
+  <p id="score" style="position:absolute;left:50px;font-size:28px;font-family:Ariel">Score: 0</p>
+  <p id="extraLives" style="position:absolute;right:50px;font-size:28px;font-family:Ariel">Extra lives: 3</p>
+  <img
+  id="dogImage" 
+  alt="dog image"
+  src="../assets/dogCatch.png"
+  width="200"
+  style="position:absolute;left:500px;top:500px;-webkit-transition:all 0.2s"
+  />
+  <img
+  id="boneImage"
+  alt="bone image"
+  src="../assets/boneCatch.gif"
+  width="100"
+  style="position:absolute;left:500px;-webkit-transition:all 0.2s"
+  />
+</body>
+<head>
+  <script>
+    var score = 0;
+    var lives = 3;
+    <!-- var endTimer = 30; -->
+    var boneTimer = window.setInterval(moveBone,25);
+    var boneSpeed = 80;
+    var dogSpeed = 20;
+    var dogX = 0;
+    
+    document.onkeydown=moveDog;
+    
+    function setTop(yC) {
+      document.getElementById("boneImage").style.top = yC + "px";
+    }
+    function setLeft(id, xC) {
+      document.getElementById(id).style.left = xC + "px";
+    }
+    function generate(range) {
+      var random = Math.ceil(Math.random()*range);
+      return random;
+    }    
+    function moveBone() {
+      var yC = document.getElementById("boneImage").offsetTop + generate(boneSpeed);
+      setTop(yC);
+      if (yC > 550) {missedBone(yC)}
+      if (lives <=0) {gameover()}
+    }
+    function moveDog(e) {
+      if (e.keyCode==37) {
+        dogX--;
+      }
+      if (e.keyCode==39) {
+        dogX++;
+      }
+      setLeft("dogImage", dogX*50);
+    }
+    function missedBone(yC) {
+      lives--;
+      document.getElementById("extraLives").innerText = "Extra lives: " + lives;
+      setTop(-500);
+      setLeft("boneImage",generate(1000));
+    }
+    function gameover(){
+      clearInterval(boneTimer);
+      location.reload();
+    }
+  </script>
+</head>

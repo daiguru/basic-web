@@ -1,0 +1,19 @@
+body {
+  background-image: url("../assets/hills.webp");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align:center
+}
+h1 {
+  color:#68550D
+}
+label {
+  font-family:franklin gothic medium
+}
+p {
+  font-family:cursive
+}
+input {
+  
+}

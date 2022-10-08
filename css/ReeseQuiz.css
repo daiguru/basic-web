@@ -1,0 +1,37 @@
+body {
+  background:grey
+}
+div{
+  color:black;
+  background:black;
+  width:200px;
+  margin:0 auto;
+  text-align:center;
+  transition:all 2s;
+}
+div:active{
+  color:white;
+}
+h1 {
+  font-family:fantasy;
+  color:dark brown;
+  text-align:center
+}
+p {
+  font-family:bold;
+  color:black;
+  text-align:center
+}
+img {
+  border:3px solid black;
+  height:100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h3 {
+  text-align:center;
+}
+label {
+  text-align:center;
+}

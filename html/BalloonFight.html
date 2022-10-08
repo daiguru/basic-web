@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<head>
+  <script>
+    var score = 0;
+    var speed = 3;
+    <!-- var endTimer = 30; -->
+    var timer = window.setInterval(floatUp,25);
+    
+    function setTop(yC) {
+      document.getElementById("balloon").style.top=yC+"px";
+    }
+    
+    function generate(range) {
+      var random = Math.ceil(Math.random()*range);
+      return random;
+    }
+    function floatUp() {
+      console.log(`hesho`);
+      var yC = document.getElementById("balloon").offsetTop - generate(speed);
+      if (yC <0) {
+        gameOver();
+      }
+      setTop(yC);
+    }
+    function popMe() {
+      score = score + 1;
+      speed = speed + generate(2);
+      document.getElementById("scoreTracker").innerText="Balloons popped: " + score;
+      setTop(900);
+      document.getElementById("balloon").style.left=generate(1000)+"px";
+    }
+    function gameOver() {
+      clearInterval(timer);
+      document.getElementById("gameoverscreen").style.visibility="visible";
+      document.getElementById("balloon").style.visibility="hidden";
+      document.getElementById("whyTho").style.visibility="hidden";
+    }
+    function restart() { location.reload(); }
+    function endGame() {
+      document.getElementById("justClose").style.visibility="visible";
+      document.getElementById("gameoverscreen").style.visibility="hidden";
+    }
+    function changeMind() {
+      document.getElementById("justClose").style.visibility="hidden";
+      document.getElementById("gameoverscreen").style.visibility="visible";
+    }
+  </script>
+</head>
+<body style="background:lightblue" >
+  <center><h1 id="scoreTracker" >Balloons popped: 0</h1></center>
+  <center id="whyTho" ><h3>Don't know how to play? Click the balloon to pop it.</h3></center>
+  <img
+    id="balloon"
+    src="../assets/balloonImage.png"
+    alt="balloon"
+    style="position:absolute;width:100px;top:900px;left:500px"
+    onMouseDown="popMe()"
+  />
+  <center id="gameoverscreen" style="visibility:hidden">
+    <p><h1>GAME</h1></p>
+    <p><h1>OVER</h1></p>
+    <p>Play again?</p>
+    <button onMouseDown="restart()">YES</button>
+    <button onMouseDown="endGame()">NO</button>
+  </center>
+  <center id="justClose" style="visibility:hidden">
+    <p><h2>Then just close the tab.</h2></p>
+    <button id="neverMind" onMouseDown="changeMind()" >Change your mind? Press this button.</button>
+  </center>
+</body>

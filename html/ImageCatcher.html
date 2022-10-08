@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<head>
+  <script>
+    var timer = window.setInterval(moveImage,1000);
+    var score = 0;
+    var endTimer = 60;
+ 
+    function moveImage() {
+      endTimer = endTimer - 1;  
+      document.getElementById("catchMe").style.left=Math.random()*900+"px";
+      document.getElementById("catchMe").style.top=Math.random()*700+"px";
+      document.getElementById("timeLength").innerText="Time: " + endTimer;
+      if (endTimer < 0) {
+        clearInterval(timer);
+        alert("Game End!\nYour score: "+score);
+        location.reload();
+      }
+    }
+    function clickScore() {
+      score = score + 1;
+      document.getElementById("scoreTracker").innerText="Score: " + score;
+    }
+    
+  </script>
+</head>
+<body style="background:lightblue">
+  <p id="timeLength">Time: 60</p>
+  <p id="scoreTracker">Score: 0</p>
+  <img
+    id="catchMe"
+    alt="Rock Feather Studios Logo"
+    src="../assets/rfsLogo.png"
+    style="position:absolute;-webkit-transition:all 0.5s"
+    width="100"
+    onMouseDown="clickScore()"
+  />
+</body>
